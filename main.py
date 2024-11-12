@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from routers.user_routes import client_router
 from database import create_db_and_tables # Importing this will create all the models in memory before the app starts.
-import uvicorn
 
 app = FastAPI(
     title="Client Database",
@@ -16,6 +15,3 @@ def on_startup():
 
 
 app.include_router(client_router)
-
-if __name__ == "__main__":
-    uvicorn.run(app, host = "0.0.0.0", port = 8000)
